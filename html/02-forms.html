@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Forms and validations</h1>
+
+    <form action="">
+      <input type="text" name="" id="" />
+      <label for="this is a text type">text type</label> </br>
+      <input type="password" name="" id="" />
+      <label for="this is a password type">password</label></br>
+      <input type="email" name="" id="" />
+      <label for="this is an email type">email type</label></br>
+      <input type="number" name="" id="" />
+      <label for="this is a number type">number</label></br>
+      <div style="border-style: solid; padding: 10px; margin: 10px;">
+        <label for="range_input"></label>
+        <input type="range" name="" id="range_input" min="1" max="10" value="4" oninput="rangeOutput.value = this.value"/> range type</br>
+        <output id="rangeOutput">4</output> 
+     </div>
+
+     <div>
+      <input id="list" name="list" list="browsers" />
+      <datalist id="browsers">
+        <option value="Select " />
+        <option value="Chrome" />
+        <option value="Firefox" />
+        <option value="Internet Explorer" />
+        <option value="Opera" />
+        <option value="Safari" />
+     </div>
+      <input type="date" name="" id="" /> date type</br>
+      <input type="week" name="" id="" /> week type</br>
+      <input type="month" name="" id="" /> month type</br>
+      <input type="datetime-local" name="" id="" /> datetime-local type</br>
+      <input type="color" name="" id="" /> color type</br>
+      <input type="file" name="" id="" /> file type</br>
+      <input type="hidden" name="" id="" /> hidden type</br>
+      <input type="image" name="" id="" /> image type</br>      
+      <input type="reset" value="reset" /> reset type</br>
+      <input type="radio" name="" id=""> radio type</br>
+      <input type="search" name="" id=""> search type</br>
+      <input type="tel" name="" id=""> tel type</br>
+      <input type="time" name="" id=""> time type</br>
+      <input type="button" value="button" /> button type</br>
+      <span>--------------------------</span> </br>
+        <div style="display: flex; flex-direction: row; width: 300px; ">
+            <input type="checkbox" name="dog" id="dog" value="dog" > checkbox dog ------
+            <label for="dog">label dog</label>
+        </div>
+        <div style="display: flex; flex-direction: row; width: 300px; "></div>
+            <input type="checkbox" name="cat" id="cat" value="cat"> checkbox type ---- 
+            <label for="cat">label cat</label>
+        </div>
+
+        <fieldset id="size">
+          <input type="radio" value="2" name="size"> 2-person table
+          <input type="radio" value="4" name="size" checked> 4-person table 
+          <input type="radio" value="6" name="size"> 6-person table
+          
+        </fieldset>
+
+        <fieldset id="location">
+          <input type="radio" value="indoors" name="location" checked> Indoors
+          <input type="radio" value="outdoors" name="location"> Outdoors
+        </fieldset>
+
+        div*3
+      
+    </form>
+  </body>
+</html>

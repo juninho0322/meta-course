@@ -1,0 +1,65 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container1 {
+  display: flex;
+  width: 500px;
+  height: 500px;
+  background-color: red;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-radius: 50%;
+}
+
+.container1 {
+  transform: rotate(0deg);
+}
+
+.container1:hover {
+  transition: ease-in-out 0.5s;
+  background-image: url("../css/tattoo.jpg");
+  background-size: cover;
+  background-position: center;
+  z-index: 99;
+  transform: rotate(360deg);
+  transition: transform 5s;
+}
+
+.container2 {
+  display: flex;
+  width: 500px;
+  height: 500px;
+  background-color: red;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  margin-left: 100px;
+}
+
+.container2 {
+  transform: skewX(20deg);
+  transition: 5s;
+}
+.container3 {
+  display: grid;
+  width: 240px;
+  height: 240px;
+  margin: 100px;
+  background-color: green;
+  border-radius: 12px;
+  border: solid #6feb6f 5px;
+}
+
+.container3:hover {
+  transform: rotateZ(60deg);
+  background-color: lightcoral;
+  opacity: 50%;
+  transition: 5s;
+}

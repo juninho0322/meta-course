@@ -1,0 +1,43 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: rgb(255, 255, 255);
+}
+
+.clock {
+  display: flex;
+  width: 500px;
+  height: 500px;
+  background-color: rgb(17, 0, 255);
+  border-radius: 50%;
+}
+
+.minutes {
+  width: 4px;
+  height: 230px;
+  background-color: rgb(255, 255, 255); /* white */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  animation: cycle 60s linear infinite;
+}
+
+@keyframes cycle {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.hours {
+  width: 4px;
+  height: 230px;
+  background-color: rgb(255, 255, 255); /* white */
+  position: absolute;
+  bottom: 50%;
+  right: 50%;
+}

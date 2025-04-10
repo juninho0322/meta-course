@@ -1,0 +1,21 @@
+## // CLONING A REPOSITORY
+
+--- git init -- to create a new repository
+--- git clone (path of the repository)
+--- git add -- stages all the changes made
+--- git commit -- to commit as the changes made
+--- git push -- to send all the changes to gitHub
+--- git fetch --
+--- git checkout -- -B (name of the new branch) to create a new branch
+--- git branch (new of the new branch) -- also creates a new branch
+--- git status --
+--- git restore --stage (name of the file) - to unstage / untrack files staged
+--- git push -u origin --
+--- git pull -- pulls the data from remote repo to the local repo
+--- git remote add add origin (path of the remote repo)
+--- git diff -- compare files / and commits
+--- cat .git/head -- shows where the head is pointing (which branch you are currently working)
+--- git log --pretty=oneline -- shows all the commits done
+--- git blame (name of the file)-- displays all the lines and who updated
+--- git blame -L 5,10 (name of the file) -- just displays from line 5 to 15
+--- git fork -- 

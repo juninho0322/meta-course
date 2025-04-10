@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+  </head>
+  <body>
+    <main>
+      <h1>Sign Up</h1>
+      <form
+        method="post"
+        action=""
+        style="display: flex; flex-direction: column; width: 300px; gap: 10px"
+      >
+        <div>
+          <label for="user_first_name">First name</label><br />
+          <input
+            type="text"
+            name="user_first_name"
+            id="user_first_name"
+            required
+          />
+        </div>
+        <div>
+          <label for="user_last_name">Last name</label><br />
+          <input
+            type="text"
+            name="user_last_name"
+            id="user_last_name"
+            required
+          />
+        </div>
+        <div>
+          <label for="user_email">Email</label><br />
+          <input type="email" name="user_email" id="user_email" required />
+        </div>
+        <div>
+          <label for="user_password">Password</label><br />
+          <input
+            type="password"
+            name="user_password"
+            id="user_password"
+            required
+            minlength="8"
+            maxlength="16"
+          />
+        </div>
+        <div>
+          <label for="user_confirm_password">Confirm password</label><br />
+          <input
+            type="password"
+            name="user_confirm_password"
+            id="user_confirm_password"
+            required
+            minlength="8"
+            maxlength="16"
+          />
+        </div>
+        <div>
+          <button type="submit">Sign Up</button>
+        </div>
+      </form>
+      <script>
+        
+        // VALIDADE PASSWORD
+        function validatePassword() {
+          const password = document.getElementById("user_password");
+          const confirm_password = document.getElementById(
+            "user_confirm_password"
+          );
+          if (password.value != confirm_password.value) {
+            confirm_password.setCustomValidity("Passwords do not match");
+          } else {
+            confirm_password.setCustomValidity("");
+          }
+        }
+        const button = document.querySelector("button");
+        button.addEventListener("click", validatePassword);
+
+        // VALIDATE FORMS
+        const forms = document.querySelectorAll("input");
+
+        function validateForms(event) {
+          // event.target is the element that triggered the event
+          const field = event.target;
+
+          // trim removes whitespace from both ends of a string, this way spaces are not considered as valid input
+          if (field.value.trim() === "") {
+            field.style.border = "1px solid red";
+          } else {
+            field.style.border = "1px solid green";
+          }
+        }
+        // forEach() method executes a provided function once for each array element
+        forms.forEach((field) => {
+          field.addEventListener("blur", validateForms);
+        });
+      </script>
+    </main>
+  </body>
+</html>
