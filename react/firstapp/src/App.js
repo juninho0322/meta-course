@@ -20,7 +20,7 @@ function Header(props) {
   );
 }
 const data = {
-  promo: "10% off",
+  promo: "20% off",
   title: "All must to go",
 };
 
