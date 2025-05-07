@@ -1,8 +1,9 @@
-import logo from "./logo.svg";
+
 import "./App.css";
 import Btn from "./components/Btn";
 import Counter from "./components/Counter";
 import ModeToggler from "./components/ModeToggler";
+import Header from "./components/Header";
 
 function fullName(firstName, lastName) {
   return firstName + " " + lastName;
@@ -10,15 +11,7 @@ function fullName(firstName, lastName) {
 const result = <p>{fullName("John", "Doe")}</p>;
 
 //example how to use props and props.children
-function Header(props) {
-  return (
-    <>
-      <h1>{props.title}</h1>
-      <h2>{props.title2}</h2>
-      {props.children}
-    </>
-  );
-}
+
 const data = {
   promo: "20% off",
   title: "All must to go",
@@ -43,12 +36,17 @@ function Card(props) {
   );
 }
 
+
+
 // props.children is used to pass data between components
 function App() {
   return (
     <>
       <div className="App">
-        <Header title="This is my h1" title2="h2 tag" />
+        <Header title="This is my h1" title2="h2 tag" p="test">
+            {/* props.children*/}
+          <h3>This is my h3</h3>
+          </Header>
         <p>This is my first paragraph</p>
         {result}
         <ul>
@@ -62,6 +60,7 @@ function App() {
         <Btn />
         <Counter />
         <ModeToggler />
+        
       </div>
     </>
   );
