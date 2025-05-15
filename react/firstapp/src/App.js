@@ -1,9 +1,13 @@
 
 import "./App.css";
+import "./Nav.css";
 import Btn from "./components/Btn";
 import Counter from "./components/Counter";
 import ModeToggler from "./components/ModeToggler";
 import Header from "./components/Header";
+import {Routes, Route, Link} from "react-router-dom";
+import Homepage from "./Homepage";
+import AboutMe from "./AboutMe";
 
 function fullName(firstName, lastName) {
   return firstName + " " + lastName;
@@ -43,6 +47,17 @@ function App() {
   return (
     <>
       <div className="App">
+
+        <nav className="nav">
+          <Link to="/" className="nav-item">Homepage</Link>
+          <Link to="/about" className="nav-item">About Me</Link>
+        </nav>
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/about" element={<AboutMe />} />
+        </Routes>
+
+        
         <Header title="This is my h1" title2="h2 tag" p="test">
             {/* props.children*/}
           <h3>This is my h3</h3>
@@ -60,6 +75,8 @@ function App() {
         <Btn />
         <Counter />
         <ModeToggler />
+
+        
         
       </div>
     </>
