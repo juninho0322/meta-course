@@ -8,6 +8,8 @@ import Header from "./components/Header";
 import {Routes, Route, Link} from "react-router-dom";
 import Homepage from "./Homepage";
 import AboutMe from "./AboutMe";
+import CurrentMessage from "./components/CurrentMessage";
+
 
 function fullName(firstName, lastName) {
   return firstName + " " + lastName;
@@ -52,6 +54,7 @@ function App() {
           <Link to="/" className="nav-item">Homepage</Link>
           <Link to="/about" className="nav-item">About Me</Link>
         </nav>
+        <Homepage/>
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/about" element={<AboutMe />} />
@@ -75,6 +78,9 @@ function App() {
         <Btn />
         <Counter />
         <ModeToggler />
+        <CurrentMessage />
+          
+
 
         
         

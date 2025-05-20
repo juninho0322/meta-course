@@ -1,0 +1,25 @@
+img {
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+}
+/* Stack homepage and buttons vertically */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Show icon and button side-by-side */
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* spacing between icon and button */
+}
+
+/* Optional: style the homepage spacing */
+.home-page {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
