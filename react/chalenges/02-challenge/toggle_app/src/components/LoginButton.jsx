@@ -1,56 +1,41 @@
 import { useState } from "react";
-import LoggedIn from "../assets/user-interface.png";
-import Loggedout from "../assets/logout.png";
-import "../Buttons.css"
+import LoggedInIcon from "../assets/user-interface.png";
+import LoggedOutIcon from "../assets/logout.png";
+import "../Buttons.css";
 import HomePage from "../HomePage";
 
-function LoginButton({login}){
+function LoginButton({ login }) {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-    //arrow function to handle the click event
-    //this function will toggle the isLoggedIn state
-    const handleClick = () => {
+    function handleClick() {
         setIsLoggedIn(!isLoggedIn);
-        login.onClick();
-    };
+        login?.onClick && login.onClick(); // safe optional chaining
+    }
 
-    //arow function to render the button when the user is logged in
-    const buttonLoggedIn = () => {
-        return(
-            <div className="buttons">
-                <img src={LoggedIn} alt=""  />    
-                <button className="login-button" onClick={handleClick}>
+    // Renders view when user is logged OUT
+    const renderLoggedOutView = () => (
+        <div className="buttons">
+            <img src={LoggedInIcon} alt="Logged out icon" />
+            <button className="login-button" onClick={handleClick}>
                 Log In
-                    
+            </button>
+        </div>
+    );
+
+    // Renders view when user is logged IN
+    const renderLoggedInView = () => (
+        <div className="login-container">
+            <div className="home-page">
+                <HomePage />
+            </div>
+            <div className="buttons">
+                <img src={LoggedOutIcon} alt="Logged in icon" />
+                <button className="login-button" onClick={handleClick}>
+                    Log Out
                 </button>
             </div>
-        )
-    }
-
-    //function expression to render the button when the user is logged out
-    const buttonLoggedOut = function (){
-        return(
-            <div className="login-container">
-                <div className="home-page">
-                    <HomePage/>
-                </div>
-                <div className="buttons">
-                    <img src={Loggedout} alt="" />
-                    <button className="login-button" onClick={handleClick}>
-                        Log out
-                    </button>
-                    
-                </div>
-            </div>
-        );
-    }
-
-    return (
-        <div className="buttons">
-            {!isLoggedIn ? buttonLoggedIn() : buttonLoggedOut()}
         </div>
-        
-        
     );
+
+    return isLoggedIn ? renderLoggedInView() : renderLoggedOutView();
 }
 export default LoginButton;

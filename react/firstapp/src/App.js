@@ -16,8 +16,8 @@ function fullName(firstName, lastName) {
 }
 const result = <p>{fullName("John", "Doe")}</p>;
 
-//example how to use props and props.children
 
+//example how to use props and props.children
 const data = {
   promo: "20% off",
   title: "All must to go",
@@ -54,16 +54,17 @@ function App() {
           <Link to="/" className="nav-item">Homepage</Link>
           <Link to="/about" className="nav-item">About Me</Link>
         </nav>
-        <Homepage/>
+        
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/about" element={<AboutMe />} />
         </Routes>
 
         
-        <Header title="This is my h1" title2="h2 tag" p="test">
+        <Header title="This is my h1" title2="h2 tag" >
             {/* props.children*/}
-          <h3>This is my h3</h3>
+            <p>Test</p>
+            <h3>This is my h3</h3>
           </Header>
         <p>This is my first paragraph</p>
         {result}
@@ -72,6 +73,7 @@ function App() {
           <li>list 2</li>
           <li>list 3</li>
         </ul>
+        
         <Card h2="This is h2 CARD 1" h3="This is h3 CARD 1" />
         <Card h2="This is h2 CARD 2" h3="This is h3 CARD 2" />
         <Card h2="This is h2 CARD 3" h3="This is h3 CARD 3" />
