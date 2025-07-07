@@ -5,4 +5,10 @@
   text-align: center;
 }
 
+button{
+  margin-top: 20px;
+}
 
+.FeedbackForm{
+  gap: 1rem;
+}

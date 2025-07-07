@@ -14,11 +14,14 @@ function App() {
 
   // State to hold the feedback score
   const [score, setScore] = useState("10");
+
+  // State to hold the submitted score
+  const [submittedScore, setSubmittedScore] = useState(null);
   
 
-  const handleSubmit = (event)=> {
+  const handleSubmit = (e)=> {
     // Prevent the default form submission behavior
-    event.preventDefault();
+    e.preventDefault();
     if (!name) {
       alert('Please enter your name');
       return;
@@ -31,15 +34,21 @@ function App() {
       alert('Form submitted!');
       setNames((prevNames) => [...prevNames, name]);
       setName('');
-
-   
-   
     
   }
   
   // FEEDBACK FORM
-  const handleFeebackSubmit = (e) => {
+  const handleScoreChange = (e) => {
+    // Update the score state with the new value from the range input
     setScore(e.target.value);
+  };
+
+  const handleScoreSubmit = (e) => {  
+    // Prevent the default form submission behavior
+    e.preventDefault();
+    setSubmittedScore(score);
+    // Display an alert with the submitted score
+    alert(`Score submitted: ${score}`);
   }
   
   
@@ -77,7 +86,7 @@ function App() {
       </form>
 
       <div className='FeedbackForm'>
-        <form action="">
+        <form onSubmit={handleScoreSubmit}>
           <fieldset>
             <h2>Feedback Form</h2>
               <div className='Field'>
@@ -87,10 +96,14 @@ function App() {
                 min="0" 
                 max="10" 
                 value={score}
-                onChange={handleFeebackSubmit}
+                onChange={handleScoreChange}
                 />
               </div> 
-            <button type='submit'>Submit</button>
+            <button type="submit">Submit</button>
+            {submittedScore !== null && (
+              <p>Score Submitted: {score}</p>
+            )}
+            
           </fieldset>
         </form>
       </div>      
