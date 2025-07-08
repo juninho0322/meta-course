@@ -2,7 +2,7 @@ function Promo() {
   return (
     <div className="promo-section">
       <div>
-        <h1>Dont miss thie deal!</h1>
+        <h1>Dont miss this deal!</h1>
       </div>
       <div>
         <h2>
