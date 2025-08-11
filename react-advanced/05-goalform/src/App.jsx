@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import { Input } from './Input.jsx'
 
 function GoalForm(props){
   
@@ -9,8 +10,10 @@ function GoalForm(props){
   });
 
   function changeHandler(e){
-    setFormData({...formData, [e.target.name]: e.target.value});
+    //setFormData({...formData, [e.target.name]: e.target.value});
+    console.log(e.target.name, e.target.value);
   };
+
 
   function submitHandler(e){
     e.preventDefault();
@@ -21,12 +24,14 @@ function GoalForm(props){
     });
   }
 
+  
+
   return (
     <>
      <h1>My goals</h1>
      <form onSubmit={submitHandler}>
-      <input type="text" name='goal' placeholder='Goal' value={formData.goal} onChange={changeHandler}  />
-      <input type="text" name='by' placeholder='By' value={formData.by} onChange={changeHandler}  />
+      <Input type='text' name='goal' placeholder='Goal' value={formData.goal} onChange={changeHandler} />
+      <input type="text" name='by' placeholder='By'  onChange={changeHandler}  />
       <button type='submit'>Add Goal</button>
      </form>
     </>
