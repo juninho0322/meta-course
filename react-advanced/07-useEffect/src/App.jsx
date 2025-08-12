@@ -2,33 +2,36 @@ import { useState, useEffect } from 'react'
 import './App.css'
 
 
+//********************************************************************************** */
  //No Dependency Array → Runs after every render
  export function Example1() {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    console.log("Runs after every render. Current count:", count);
+    console.log("EXAMPLE 01 - Runs after every render. Current count:", count);
 
   });
 
   return <button onClick={() => setCount(count + 1)}>Count: {count}</button>; 
 }
+//********************************************************************************** */
 
 // /Empty Dependency Array [] → Runs only once on mount
 export function Example2() {
   useEffect(() => {
-    console.log("Runs only once when component mounts");
+    console.log("EXAMPLE 02 - Runs only once when component mounts");
   }, []);
 
   return <p>Check the console</p>;
 }
 
+//********************************************************************************** */
 //With State in Dependency Array → Runs when that state changes
 export function Example3() {
   const [query, setQuery] = useState("");
 
   useEffect(() => {
-    console.log("Searching for:", query);
+    console.log("EXAMPLE 03 - Searching for:", query);
   }, [query]); // Only runs when `query` changes
 
   return (
@@ -40,13 +43,14 @@ export function Example3() {
   );
 }
 
+//********************************************************************************** */
 //Multiple Dependencies
 export function Example4() {
   const [first, setFirst] = useState("");
   const [last, setLast] = useState("");
 
   useEffect(() => {
-    console.log("Full name changed:", `${first} ${last}`);
+    console.log("EXAMPLE 04 - Full name changed:", `${first} ${last}`);
   }, [first, last]); // Runs if first OR last changes
 
   return (
