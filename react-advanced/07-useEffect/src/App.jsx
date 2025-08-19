@@ -7,8 +7,13 @@ import './App.css'
  export function Example1() {
   const [count, setCount] = useState(0);
 
+  
+
   useEffect(() => {
+
     console.log("EXAMPLE 01 - Runs after every render. Current count:", count);
+    // send data to an API, update the DOM, etc.
+    // setData
 
   });
 
