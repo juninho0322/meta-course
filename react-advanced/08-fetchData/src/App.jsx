@@ -9,35 +9,35 @@ function App() {
   const [loading, setLoading] = useState(false);
   const resultsPerPage = 5;
 
-  const fetchData = (pageNum) => {
+  const fetchData = () => {
     setLoading(true);
-    fetch(`https://randomuser.me/api/?page=${pageNum}&results=${resultsPerPage}&seed=abc`)
+    fetch(`https://randomuser.me/api/?page=${page}&results=${resultsPerPage}&seed=abc`)
       .then(response => response.json())
       .then(data => setUser(data))
       .finally(() => setLoading(false));
   }
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      fetchData(page);
-    }, 2000);
-
-    return () => clearTimeout(timer);
-  }, [page]);
-
+  useEffect(fetchData,[page]);
+      
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'instant' });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleNextPage = () => {
-    setPage((prevPage) => prevPage + 1);
-    scrollToTop
+    setPage(nextPage => nextPage + 1);
+    scrollToTop();
   };
 
   const handlePrevPage = () => {
-    setPage((prevPage) => Math.max(prevPage - 1, 1));
-    scrollToTop
+    setPage(prevPage => {
+      scrollToTop();
+      const value = prevPage - 1;
+      if (value < 1) {
+        return 1;
+      } 
+      return value;
+    }) 
   };
 
   const haveKeys = Object.keys(user).length > 0;
@@ -46,20 +46,25 @@ function App() {
     <h1> Fetching data... </h1>
   ) : (
     <div>
-      {user.results.map((currentItem) => (
-        <div key={currentItem.login.uuid}>
-          {console.log(currentItem)}
-          <h1>Data returned</h1>
-          <h2>First Name: {currentItem.name.first}</h2>
-          <h2>Last Name: {currentItem.name.last}</h2>
-          <h2>Email: {currentItem.email}</h2>
-          <h2>Country: {currentItem.location.country}</h2>
-          <h2>City: {currentItem.location.city}</h2>
-          <img src={currentItem.picture.large} alt="" /> 
-          <hr />
-        </div>
-      ))}
-
+      <h2>Page: {page}</h2> 
+      {user.results.map((currentItem,index) => {
+        const number = ( page -1 ) * resultsPerPage + index + 1;
+        return (
+          <div key={currentItem.login.uuid}>
+            {console.log(currentItem)}
+            <h3>Data returned {number}</h3>
+            <h4>First Name: {currentItem.name.first}</h4>
+            <h4>Last Name: {currentItem.name.last}</h4>
+            <h4>Email: {currentItem.email}</h4>
+            <h4>Country: {currentItem.location.country}</h4>
+            <h4>City: {currentItem.location.city}</h4>
+            <img src={currentItem.picture.large} alt="" /> 
+            <hr />
+          </div>
+        )
+      }
+      )}
+      
       <div>
         <button onClick={handlePrevPage} disabled={page === 1 || loading}>
           Previous Page
