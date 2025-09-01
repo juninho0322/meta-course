@@ -1,34 +1,53 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 
-const DataFetcher = ({ render, url}) => {
+const DataFetcher = ({ render, url }) => {
   const [data, setData] = useState([]);
+  
 
   useEffect(() => {
-    if (url.includes("desserts")) {
-      setData(["cake", "ice cream", "pie", "pudding", "brownie", "cookies"]);
-    } else {
-      setData(["water", "soda", "juice", "tea", "coffee", "beer"]);
-    }
-  }, []);
-
+    const items = url.includes("desserts") 
+    ? ["cake", "ice cream", "pie", "pudding"]
+    : url.includes("drinks") 
+    ? ["water", "soda", "juice", "tea", "coffee", "beer"]
+    : [];
+     setData(items);
+  }, [url]);
+  
+    if(!data || data.length === 0){
+      return <h3>Loading...</h3>
+    } 
+  
+  
   return render(data);
 };
 
+
+
 const DessertsCount = () => {
   return (
+    console.log("Rendering DessertsCount"),
     <DataFetcher
       url="https://littlelemon/desserts"
-      render = {(data) => <p>{data.length} desserts</p>}
+      render = {(desserts) => {
+        console.log("Desserts array:", desserts);
+        return <p>{desserts.length} desserts</p>}
+
+      }
     />
-  );
-};
+  )
+}
+
 
 const DrinksList = () => {
   return (
+    console.log("Rendering DrinksCount"),
     <DataFetcher
       url="https://littlelemon/drinks"
-      render = {(data) => <h3>{data.length} drinks</h3>}
+      render = {(drinks) => {
+        console.log("Drinks array:", drinks);
+        return <h3>{drinks.length} drinks</h3>}
+      }
     />
   );
 };  
