@@ -27,6 +27,31 @@ const printRandom = () => {
 const printRandom2 = () => console.log(Math.random());
 
 
+// double(double(double(2)))
+
+
+
+const double2 = (a) => { return a * 2};
+
+const person = () => ({name: "John", age: 30});
+
+
+
+
+
+function multiply(a) {
+  return function(b) {
+    return a * b;
+  }
+}
+
+const multiplyByten = multiply(10);
+const result = multiplyByten(5);  
+console.log(result); // 50
+
+const multiply = a => b => a * b;
+
+
 
 
 
